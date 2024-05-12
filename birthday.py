@@ -1,9 +1,7 @@
 class Birthday:
 
     #at1 is month
-    month = 0
-    day = 0
-    year = 0
+    # Don't need to set these here, they are always set by the constructor.
 
     #init construtor
     def __init__(self, month, day, year):
