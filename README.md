@@ -23,3 +23,8 @@
 <h3>Birthday input constraints</h3>
 <ul>
   <li>Birth months must be integers 1-12.</li>
+  <li>Birth days must be integers between 1 and 28-31. Check for given months what is valid (i.e. Feb 29 can only happen on a leap year, April 31 is not a date, etc.).</li>
+  <li>Birth year must be after 0 and before 2050.</li>
+  <li>Birthday must be given in the format above, and no other formats.</li>
+  <li>Make error output specific to which problem occurs.</li>
+</ul>
