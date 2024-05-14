@@ -1,4 +1,24 @@
-from age_calculator import birthday
+from birthday import Birthday
+
+#Checks birthday input format mm/dd/yyyy
+def checkBD_string(date_string):
+    if (len(date_string) != 10):
+        return False
+    if ((date_string[2] != '/') or (date_string[5] != '/')):
+        return False
+        #does not catch a dash case
+
+    return True
+    
+def checkBD_Int(date_string):
+    if not date_string[0:2].isnumeric():
+        return False
+    if not date_string[3:5].isnumeric():
+        return False
+    if not date_string[6:].isnumeric():
+        return False
+
+    return True
 
 #Reads and returns user input of birthday as one string
 def birthday_input():
@@ -6,21 +26,29 @@ def birthday_input():
     return date_string
 
 #Splits the date_string into mdy into three integers
-def stringParse(date_string):
-    new_string = date_string.split("/")
-    month = int(new_string[0])
-    day = int(new_string[1])
-    year = int(new_string[2])
+def dateInt(date_string):
+    date_components = date_string.split("/")
+    month = int(date_components[0])
+    day = int(date_components[1])
+    year = int(date_components[2])
 
     return month, day, year
 
 def main():
     birthday = birthday_input()
-    int_birthday = stringParse(birthday)
+    while (checkBD_string(birthday) == False):
+        birthday = birthday_input()
     
+    while (checkBD_Int(birthday) == False):
+        birthday = birthday_input()
+    int_birthday = dateInt(birthday)
     birthday1 = Birthday(int_birthday[0],int_birthday[1],int_birthday[2])
-    print(birthday1.month)
-    print(birthday1.day)
-    print(birthday1.year)
+    # print(birthday1.month)
+    # print(birthday1.day)
+    # print(birthday1.year)
+    birthday1.printAge()
+
+
+
 
 main()
