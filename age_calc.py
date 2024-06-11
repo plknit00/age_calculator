@@ -10,6 +10,7 @@ def checkBD_string(date_string):
 
     return True
     
+#Function checks to make sure the date is made up of integers 
 def checkBD_Int(date_string):
     if not date_string[0:2].isnumeric():
         return False
@@ -20,9 +21,13 @@ def checkBD_Int(date_string):
 
     return True
 
+#Function checks to make sure the integer values are valid
+
+
 #Reads and returns user input of birthday as one string
 def birthday_input():
     date_string = input("Input birthday mm/dd/yyyy: ")
+    
     return date_string
 
 #Splits the date_string into mdy into three integers
@@ -41,12 +46,14 @@ def main():
     
     while (checkBD_Int(birthday) == False):
         birthday = birthday_input()
+
+
+    #check mdy function while loop
     int_birthday = dateInt(birthday)
+    
     birthday1 = Birthday(int_birthday[0],int_birthday[1],int_birthday[2])
-    # print(birthday1.month)
-    # print(birthday1.day)
-    # print(birthday1.year)
     birthday1.printAge()
+    birthday1.leapDayCheck()
 
 
 
