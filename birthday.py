@@ -9,6 +9,9 @@ class Birthday:
         if (((self.year % 4) == 0) and (self.day == 29) 
             and (self.month == 2)):
             print("This person is a Leap Day baby!")
+            return True
+        return False
+            
 
     def printAge(self):
         age = 0 
@@ -21,8 +24,5 @@ class Birthday:
 
         if age > 100:
             print("This person is unlikely to celebrate this Christmas...")
-
-        #reference function that outputs leap day/year birthday
-        self.leapDayCheck()
 
 
